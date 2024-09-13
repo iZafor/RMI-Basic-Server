@@ -23,7 +23,7 @@ public class LoggerImpl extends UnicastRemoteObject implements Logger {
                     now.format(
                             DateTimeFormatter.ofPattern("EEE MMM dd HH:mm:ss zzz yyyy")
                     ),
-                    // nano - 10^9 & milli - 10^3. nano to milli = nano / 10^6
+                    // nano - 10^-9 & milli - 10^-3. nano to milli = nano / 10^6
                     // below operation is performed to take 2 digits after the decimal point
                     // round((nano / 10^6) * 100) / 100  =  round(nano / 10^4) / 100
                     Math.round(Duration.between(requestTime, now).getNano() / 10000.0) / 100.0
